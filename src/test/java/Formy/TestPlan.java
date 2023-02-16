@@ -18,33 +18,31 @@ public class TestPlan {
     @Test(testName = "Submit a WebForm")
      public static void submitForm() throws InterruptedException {
         driver.get(Utils.BASE_URL);
-        //Assert.assertFalse(driver.getTitle().contains("Formy"));
         driver.manage().window().maximize();
         WebForm webForm = new WebForm(driver);
 
+        webForm.verifyTitle();
         webForm.enterFirstName();
-        Thread.sleep(1000);
+        Thread.sleep(500);
         webForm.enterLastName();
-        Thread.sleep(1000);
+        Thread.sleep(500);
         webForm.enterJobTitle();
-        Thread.sleep(1000);
+        Thread.sleep(500);
         webForm.enterEducation();
-        Thread.sleep(1000);
+        Thread.sleep(500);
         webForm.enterSex();
-        Thread.sleep(1000);
+        Thread.sleep(500);
         webForm.enterExperience();
-        Thread.sleep(1000);
+        Thread.sleep(500);
         webForm.enterDate();
-        //WebDriverWait Wait=new WebDriverWait (driver, Duration.ofSeconds(5));
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         webForm.pressSubmitButton();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         webForm.verifyAlertSuccess();
     }
     @AfterSuite
     public static void cleanUp() {
         driver.manage().deleteAllCookies();
-        driver.close();
+        //driver.close();
     }
 }
